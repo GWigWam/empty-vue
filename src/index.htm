@@ -1,36 +1,49 @@
 ﻿<!DOCTYPE HTML>
 <html lang="en">
-    <head>
-        <meta http-equiv="content-type" content="text/html; charset=utf-8">
-        <title>EmptyVue</title>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <title>EmptyVue</title>
 
-        <link rel="stylesheet" href="css/style.css" />
-        <style></style>
+    <link rel="stylesheet" href="css/style.css" />
+    <style></style>
 
-        <!-- DEV: -->
-        <script type="text/javascript" src="lib/vue/vue.js"></script>
+    <!-- DEV: -->
+    <script src="lib/vue/vue.js"></script>
+    <script src="lib/vue-router/vue-router.js"></script>
 
-        <!-- PROD: --> <!--
-        <script type="text/javascript" src="lib/vue/vue.min.js"></script>
-        -->
+    <!-- PROD: -->
+    <!--
+    <script src="lib/vue/vue.min.js"></script>
+    <script src="lib/vue-router/vue-router.min.js"></script>
+    -->
 
-        <script src="js/script.js"></script>
-    </head>
+    <script src="js/script.js"></script>
+
+    <!-- Components: -->
+    <script src="js/home.js"></script>
+</head>
 
     <body>
         <div id="app">
-            <p>{{ val }}</p>
+            <router-view />
         </div>
 
         <script>
+            const router = new VueRouter({
+                routes: [
+                    { path: '/', redirect: '/home' },
+                    { path: '/home', component: Vue.component('home'), name: 'home' }
+                ]
+            });
+            router.beforeEach((to, from, next) => next());
+
             var app = new Vue({
+                router: router,
                 el: '#app',
-                data: () => {
-                    return {
-                        val: 'Hello Vue!'
-                    }
+                data() {
+                    return { }
                 },
-                methods: {}
+                methods: { }
             });
         </script>
     </body>
