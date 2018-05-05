@@ -5,16 +5,23 @@
     <title>EmptyVue</title>
 
     <link rel="stylesheet" href="css/style.css" />
+
+    <link rel="stylesheet" href="lib/vue-material/vue-material.css" />
+    <link rel="stylesheet" href="lib/vue-material/theme/default.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <style></style>
 
     <!-- DEV: -->
     <script src="lib/vue/vue.js"></script>
     <script src="lib/vue-router/vue-router.js"></script>
+    <script src="lib/vue-material/vue-material.js"></script>
 
     <!-- PROD: -->
     <!--
     <script src="lib/vue/vue.min.js"></script>
     <script src="lib/vue-router/vue-router.min.js"></script>
+    <script src="lib/vue-material/vue-material.min.js"></script>
     -->
 
     <script src="js/script.js"></script>
@@ -29,6 +36,8 @@
         </div>
 
         <script>
+            Vue.use(VueMaterial.default);
+
             const router = new VueRouter({
                 routes: [
                     { path: '/', redirect: '/home' },

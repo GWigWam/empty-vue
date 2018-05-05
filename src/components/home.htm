@@ -1,3 +1,18 @@
-<div>
-    <p>{{ val }}</p>
+<div class="md-layout">
+    <md-card class="md-layout-item md-size-30">
+        <md-card-header>
+            <div class="md-title">
+                <md-icon class="md-accent">
+                    home
+                    <md-tooltip md-direction="right">Home</md-tooltip>
+                </md-icon>
+            </div>
+        </md-card-header>
+        <md-card-content>
+            <p>{{ val }}</p>
+            <md-button class="md-primary md-raised" v-on:click="val = val == 'click' ? 'clack' : 'click'">
+                <md-icon>flag</md-icon>
+            </md-button>
+        </md-card-content>
+    </md-card>
 </div>
