@@ -41,10 +41,13 @@
             const router = new VueRouter({
                 routes: [
                     { path: '/', redirect: '/home' },
-                    { path: '/home', component: Vue.component('home'), name: 'home' }
+                    { path: '/home', component: Vue.component('home'), name: 'home', meta: { title: 'Home' } }
                 ]
             });
-            router.beforeEach((to, from, next) => next());
+            router.beforeEach((to, from, next) => {
+                document.title = to.meta.title ? to.meta.title : to.path;
+                next();
+            });
 
             var app = new Vue({
                 router: router,
